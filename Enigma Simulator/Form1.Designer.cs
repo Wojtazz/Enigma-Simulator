@@ -46,7 +46,7 @@
             label8 = new Label();
             label9 = new Label();
             label10 = new Label();
-            textBox1 = new TextBox();
+            txtBoxPlainTxt = new TextBox();
             btnEncrypt = new Button();
             lblResult = new Label();
             SuspendLayout();
@@ -221,12 +221,12 @@
             label10.TabIndex = 17;
             label10.Text = "Plaintext";
             // 
-            // textBox1
+            // txtBoxPlainTxt
             // 
-            textBox1.Location = new Point(254, 357);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(198, 23);
-            textBox1.TabIndex = 18;
+            txtBoxPlainTxt.Location = new Point(254, 357);
+            txtBoxPlainTxt.Name = "txtBoxPlainTxt";
+            txtBoxPlainTxt.Size = new Size(198, 23);
+            txtBoxPlainTxt.TabIndex = 18;
             // 
             // btnEncrypt
             // 
@@ -240,9 +240,9 @@
             // 
             // lblResult
             // 
-            lblResult.Location = new Point(256, 387);
+            lblResult.Location = new Point(254, 387);
             lblResult.Name = "lblResult";
-            lblResult.Size = new Size(299, 54);
+            lblResult.Size = new Size(299, 129);
             lblResult.TabIndex = 20;
             lblResult.TextAlign = ContentAlignment.MiddleCenter;
             // 
@@ -250,10 +250,10 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(800, 552);
             Controls.Add(lblResult);
             Controls.Add(btnEncrypt);
-            Controls.Add(textBox1);
+            Controls.Add(txtBoxPlainTxt);
             Controls.Add(label10);
             Controls.Add(label9);
             Controls.Add(label8);
@@ -299,7 +299,7 @@
         private Label label8;
         private Label label9;
         private Label label10;
-        private TextBox textBox1;
+        private TextBox txtBoxPlainTxt;
         private Button btnEncrypt;
         private Label lblResult;
     }
