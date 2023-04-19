@@ -58,83 +58,73 @@ namespace Enigma_Simulator
             }
             if (fRotorSet.Text != "")
             {
-                //rotors changes
-                int fRotorSetInt = int.Parse(fRotorSet.Text) % 26;
-                int sRotorSetInt = (int.Parse(sRotorSet.Text) - 1) % 26;
-                int tRotorSetInt = (int.Parse(tRotorSet.Text) - 1) % 26;
-                fRotorSet.Text = ((int.Parse(fRotorSet.Text) + 1) % 27).ToString();
-                if (fRotorSet.Text == "0")
-                {
-                    fRotorSet.Text = "1";
-                }
-                StringBuilder changedFRotor = new StringBuilder(rotors[0]);
-                StringBuilder changedSRotor = new StringBuilder(rotors[1]);
-                StringBuilder changedTRotor = new StringBuilder(rotors[2]);
-                //first rotor
-                string temp = rotors[0];
-                while (changedFRotor.ToString()[0] != (rotors[0][fRotorSetInt]))
-                {
-                    for (int i = 0; i < 26; i++)
-                    {
-                        changedFRotor[i] = temp[(i + 1) % 26];
-
-                    }
-                    temp = changedFRotor.ToString();
-
-                }
-                rotors[0] = changedFRotor.ToString();
-
-                //second rotor
-                if (changedFRotor[0] == 'Q')
-                {
-                    sRotorSet.Text = ((int.Parse(sRotorSet.Text) + 1) % 27).ToString();
-                    sRotorSetInt = (int.Parse(sRotorSet.Text) - 1) % 26;
-                }
-                temp = rotors[1];
-                while (changedSRotor.ToString()[0] != (rotors[1][sRotorSetInt]))
-                {
-                    for (int i = 0; i < 26; i++)
-                    {
-                        changedSRotor[i] = temp[(i + 1) % 26];
-
-                    }
-                    temp = changedSRotor.ToString();
-
-                }
-                rotors[1] = changedSRotor.ToString();
-
-
-                //third rotor
-                if (changedSRotor[0] == 'W')
-                {
-                    tRotorSet.Text = ((int.Parse(tRotorSet.Text) + 1) % 27).ToString();
-                    tRotorSetInt = (int.Parse(tRotorSet.Text) - 1) % 26;
-                }
-                temp = rotors[2];
-                while (changedTRotor.ToString()[0] != (rotors[2][tRotorSetInt]))
-                {
-                    for (int i = 0; i < 26; i++)
-                    {
-                        changedTRotor[i] = temp[(i + 1) % 26];
-
-                    }
-                    temp = changedTRotor.ToString();
-
-                }
-                rotors[2] = changedTRotor.ToString();
-
-
-
-                lblResult.Text = alphabet;
-                lblResult.Text += " " + changedFRotor.ToString();
-                lblResult.Text += " " + changedSRotor.ToString();
-                lblResult.Text += " " + changedTRotor.ToString();
-
-
-
                 string res = "";
                 foreach (char letter in txtBoxPlainTxt.Text)
                 {
+                    //rotors changes
+                    int fRotorSetInt = int.Parse(fRotorSet.Text) % 26;
+                    int sRotorSetInt = (int.Parse(sRotorSet.Text) - 1) % 26;
+                    int tRotorSetInt = (int.Parse(tRotorSet.Text) - 1) % 26;
+                    fRotorSet.Text = ((int.Parse(fRotorSet.Text) + 1) % 27).ToString();
+                    if (fRotorSet.Text == "0")
+                    {
+                        fRotorSet.Text = "1";
+                    }
+                    StringBuilder changedFRotor = new StringBuilder(rotors[0]);
+                    StringBuilder changedSRotor = new StringBuilder(rotors[1]);
+                    StringBuilder changedTRotor = new StringBuilder(rotors[2]);
+                    //first rotor
+                    string temp = rotors[0];
+                    while (changedFRotor.ToString()[0] != (rotors[0][fRotorSetInt]))
+                    {
+                        for (int i = 0; i < 26; i++)
+                        {
+                            changedFRotor[i] = temp[(i + 1) % 26];
+
+                        }
+                        temp = changedFRotor.ToString();
+
+                    }
+                    rotors[0] = changedFRotor.ToString();
+
+                    //second rotor
+                    if (changedFRotor[0] == 'Q')
+                    {
+                        sRotorSet.Text = ((int.Parse(sRotorSet.Text) + 1) % 27).ToString();
+                        sRotorSetInt = (int.Parse(sRotorSet.Text) - 1) % 26;
+                    }
+                    temp = rotors[1];
+                    while (changedSRotor.ToString()[0] != (rotors[1][sRotorSetInt]))
+                    {
+                        for (int i = 0; i < 26; i++)
+                        {
+                            changedSRotor[i] = temp[(i + 1) % 26];
+
+                        }
+                        temp = changedSRotor.ToString();
+
+                    }
+                    rotors[1] = changedSRotor.ToString();
+
+
+                    //third rotor
+                    if (changedSRotor[0] == 'W')
+                    {
+                        tRotorSet.Text = ((int.Parse(tRotorSet.Text) + 1) % 27).ToString();
+                        tRotorSetInt = (int.Parse(tRotorSet.Text) - 1) % 26;
+                    }
+                    temp = rotors[2];
+                    while (changedTRotor.ToString()[0] != (rotors[2][tRotorSetInt]))
+                    {
+                        for (int i = 0; i < 26; i++)
+                        {
+                            changedTRotor[i] = temp[(i + 1) % 26];
+
+                        }
+                        temp = changedTRotor.ToString();
+
+                    }
+                    rotors[2] = changedTRotor.ToString();
                     char lf = letter;
                     for (int i = 0; i < 3; i++)
                     {
@@ -233,11 +223,10 @@ namespace Enigma_Simulator
                         lf = alphabet[rotors[i].IndexOf(lf)];
                     }
                     res += lf;
-
-
+                    
 
                 }
-                lblResult.Text += " " + res;
+                lblResult.Text = res;
 
 
 
