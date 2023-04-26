@@ -61,6 +61,21 @@ namespace Enigma_Simulator
                 string res = "";
                 foreach (char letter in txtBoxPlainTxt.Text)
                 {
+                    if(letter == ' ')
+                    {
+                        res += ' ';
+                        continue;
+                    }
+                    else if(letter == '.')
+                    {
+                        res += '.';
+                        continue;
+                    }
+                    else if (letter == ',')
+                    {
+                        res += ',';
+                        continue;
+                    }
                     //rotors changes
                     int fRotorSetInt = int.Parse(fRotorSet.Text) % 26;
                     int sRotorSetInt = (int.Parse(sRotorSet.Text) - 1) % 26;
@@ -125,7 +140,7 @@ namespace Enigma_Simulator
 
                     }
                     rotors[2] = changedTRotor.ToString();
-                    char lf = letter;
+                    char lf = char.Parse(letter.ToString().ToUpper());
                     for (int i = 0; i < 3; i++)
                     {
                         lf = rotors[i][alphabet.IndexOf(lf)];
